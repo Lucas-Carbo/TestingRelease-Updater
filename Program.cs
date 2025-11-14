@@ -7,7 +7,7 @@ class Program
     static void Main(string[] args)
     {
         Console.WriteLine("═══════════════════════════════════════════");
-        Console.WriteLine("         HelloApp v0.0.1");
+        Console.WriteLine("         HelloApp v0.1.1");
         Console.WriteLine("═══════════════════════════════════════════\n");
 
         string installPath = GetInstallPath();
