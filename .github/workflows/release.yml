@@ -22,12 +22,9 @@ jobs:
     - name: Build Release
       run: dotnet build -c Release --no-restore
     
-    - name: Publish executable
-      run: dotnet publish -c Release -o publish --no-build
-    
-    - name: Rename executable
+    - name: Copy executable
       run: |
-        Move-Item -Path "publish\HelloApp.exe" -Destination "HelloAppInstaller.exe"
+        Copy-Item -Path "bin\Release\net8.0\HelloApp.exe" -Destination "HelloAppInstaller.exe"
       shell: powershell
     
     - name: Upload Release Asset
