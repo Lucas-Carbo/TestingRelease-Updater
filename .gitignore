@@ -1,9 +1,9 @@
 bin/
 obj/
+*.dll
+*.exe
 *.pdb
 *.log
 .vs/
 .vscode/
 *.user
-!Releases/
-!Releases/**
