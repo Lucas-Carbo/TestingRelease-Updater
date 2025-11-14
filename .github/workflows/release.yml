@@ -28,14 +28,28 @@ jobs:
     - name: Build Release
       run: dotnet build -c Release --no-restore
     
-    - name: Copy executable
+    - name: Create ZIP with all binaries
       run: |
-        Copy-Item -Path "bin\Release\net8.0\HelloApp.exe" -Destination "HelloAppInstaller.exe"
+        # Crear carpeta temporal con el nombre de la app
+        $zipName = "HelloApp-Release.zip"
+        $sourceDir = "bin\Release\net8.0"
+        
+        # Comprimir todos los archivos compilados
+        Compress-Archive -Path "$sourceDir\*" -DestinationPath $zipName -Force
+        
+        # Verificar que se creó
+        if (Test-Path $zipName) {
+          Write-Host "ZIP creado exitosamente: $zipName"
+          Get-Item $zipName | Select-Object FullName, Length
+        } else {
+          Write-Host "ERROR: No se pudo crear el ZIP"
+          exit 1
+        }
       shell: powershell
     
-    - name: Create Release with Asset
+    - name: Create Release with ZIP Asset
       uses: softprops/action-gh-release@v2
       with:
-        files: HelloAppInstaller.exe
+        files: HelloApp-Release.zip
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
