@@ -7,7 +7,7 @@ class Program
     static void Main(string[] args)
     {
         Console.WriteLine("═══════════════════════════════════════════");
-        Console.WriteLine("         HelloApp v0.1.1");
+        Console.WriteLine("         HelloApp v0.2.0");
         Console.WriteLine("═══════════════════════════════════════════\n");
 
         string installPath = GetInstallPath();
@@ -94,10 +94,13 @@ class Program
     {
         Console.WriteLine("Iniciando... Mostrará 'Hola como estas' cada 1 minuto\n");
         Console.WriteLine("─────────────────────────────────────────");
+        Console.WriteLine("(Presiona Ctrl+C para salir)\n");
 
+        int count = 0;
         while (true)
         {
             Console.WriteLine($"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}] Hola como estas");
+            count++;
             Thread.Sleep(60000); // 60000 ms = 1 minuto
         }
     }
