@@ -29,10 +29,9 @@ jobs:
         Copy-Item -Path "bin\Release\net8.0\HelloApp.exe" -Destination "HelloAppInstaller.exe"
       shell: powershell
     
-    - name: Create Release and Upload Asset
+    - name: Create Release with Asset
+      uses: softprops/action-gh-release@v2
+      with:
+        files: HelloAppInstaller.exe
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: |
-        $tag = "${{ github.ref }}" -replace 'refs/tags/', ''
-        gh release create $tag HelloAppInstaller.exe --title "Release $tag" --notes "HelloApp $tag release" --target main
-      shell: powershell
