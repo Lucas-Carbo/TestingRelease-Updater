@@ -14,7 +14,7 @@ class Program
         _logFilePath = Path.Combine(appDir, "helloapp.log");
 
         LogMessage("═══════════════════════════════════════════");
-        LogMessage("         HelloApp v0.3.0");
+        LogMessage("         HelloApp v0.4.0");
         LogMessage("═══════════════════════════════════════════");
         LogMessage($"Iniciado en: {appDir}");
 
