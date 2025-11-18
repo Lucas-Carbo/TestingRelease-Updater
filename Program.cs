@@ -14,7 +14,7 @@ class Program
         _logFilePath = Path.Combine(appDir, "helloapp.log");
 
         LogMessage("═══════════════════════════════════════════");
-        LogMessage("         HelloApp v0.4.0");
+        LogMessage("         HelloApp v0.4.5");
         LogMessage("═══════════════════════════════════════════");
         LogMessage($"Iniciado en: {appDir}");
 
@@ -42,7 +42,7 @@ class Program
             {
                 count++;
                 LogMessage($"[Evento #{count}] Hola como estas");
-                Thread.Sleep(60000); // 60000 ms = 1 minuto
+                Thread.Sleep(30000); // 30000 ms = 30 segundos
             }
             catch (ThreadAbortException)
             {
